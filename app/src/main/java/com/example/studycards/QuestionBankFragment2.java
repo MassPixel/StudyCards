@@ -4,12 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 public class QuestionBankFragment2 extends Fragment {
+    private Button addQuestionButton;
+    private EditText QuestionText, QuestionAnswer, QuestionCategory;
 
     @Override
     public View onCreateView(
@@ -26,8 +30,7 @@ public class QuestionBankFragment2 extends Fragment {
         view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(QuestionBankFragment2.this)
-                        .navigate(R.id.action_Second2Fragment_to_First2Fragment);
+
             }
         });
     }

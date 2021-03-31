@@ -17,11 +17,6 @@ public interface QuestionDAO {
     @Query("SELECT QuestionText from Question")
     List<String> getAllQuestions();
 
-/*
-    @Query("UPDATE QuestionText from Question where QuestionText = :QuesionText")
-    public void updateQuesstion(String QuestionText);
-*/
-
     @Update
     public void updateQuestion(Question question);
 
