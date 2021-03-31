@@ -10,6 +10,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.StudyCards">
         <activity
+            android:name=".QuizModeActivity"
+            android:label="@string/title_activity_quiz_mode"
+            android:theme="@style/Theme.StudyCards.NoActionBar"></activity>
+        <activity
+            android:name=".QuestionBankActivity"
+            android:label="@string/title_activity_question_bank"
+            android:theme="@style/Theme.StudyCards.NoActionBar" />
+        <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:theme="@style/Theme.StudyCards.NoActionBar">
