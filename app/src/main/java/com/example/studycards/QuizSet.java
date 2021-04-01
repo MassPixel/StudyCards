@@ -12,7 +12,7 @@ import androidx.room.PrimaryKey;
         childColumns = "Question",
         onDelete = ForeignKey.CASCADE))
 public class QuizSet {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int QuizSetID;
 
     @ColumnInfo
@@ -21,4 +21,12 @@ public class QuizSet {
 
     @ColumnInfo
     public int Question;
+
+    public int getQuizSetID() {
+        return QuizSetID;
+    }
+
+    public void setQuizSetID(int quizSetID) {
+        QuizSetID = quizSetID;
+    }
 }

@@ -12,10 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.room.Room;
+import androidx.room.RoomDatabase;
 
 public class QuestionBankFragment2 extends Fragment {
     private Button BnAdd;
     private EditText QuestionText, QuestionAnswer, QuestionCategory;
+    AppDatabase appDB;
 
     @Override
     public View onCreateView(
@@ -33,7 +35,6 @@ public class QuestionBankFragment2 extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
         view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -46,7 +47,7 @@ public class QuestionBankFragment2 extends Fragment {
                 question.setAnswerText(questionAns);
                 question.setCategory(questionCat);*/
 
-                QuestionBankActivity.a.questionDAO().insertQuestion(questionText, questionAns);
+                appDB.questionDAO().insertQuestion(questionText, questionAns);
                 Toast.makeText(getActivity(), "Question added", Toast.LENGTH_SHORT).show();
             }
         });
