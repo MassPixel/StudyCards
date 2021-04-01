@@ -11,8 +11,8 @@ import java.util.List;
 @Dao
 public interface QuestionDAO {
 
-    @Insert
-    public void insertQuestion(String text, String answer, int categoryID);
+    @Query("INSERT INTO Question (QuestionText, AnswerText) VALUES (:question, :answer)")
+    public void insertQuestion(String question, String answer);
 
     @Query("SELECT QuestionText from Question")
     List<String> getAllQuestions();
@@ -25,13 +25,10 @@ public interface QuestionDAO {
     @Update
     public void updateQuestion(Question question);
 
-    @Delete
-    public void deleteAnswer(String AnswerText);
+    @Query("DELETE FROM Question WHERE QuestionText = :text")
+    public void deleteQuestion(String text);
 
-    @Delete
-    public void deleteQuestion(String QuestionText);
-
-    @Delete
+    @Query("DELETE FROM Question")
     public void deleteAllQuestions();
 
 }
