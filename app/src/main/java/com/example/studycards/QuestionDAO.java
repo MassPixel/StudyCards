@@ -11,24 +11,24 @@ import java.util.List;
 @Dao
 public interface QuestionDAO {
 
-    @Query("INSERT INTO Question(QuestionText, AnswerText) VALUES (:question, :answer)")
+    @Query("INSERT INTO Question (QuestionText, AnswerText) VALUES (:question, :answer)")
     public void insertQuestion(String question, String answer);
 
-/*    @Query("SELECT QuestionText from Question")
-    List<String> getAllQuestions();*/
-/*
-    @Update
-    public void updateQuestion(Question question);*/
-
-/*    @Delete
-    public void deleteAnswer(String AnswerText);*/
+    @Query("SELECT QuestionText from Question")
+    List<String> getAllQuestions();
 
 /*
-    @Delete
-    public void deleteQuestion(String QuestionText);
+    @Query("UPDATE QuestionText from Question where QuestionText = :QuesionText")
+    public void updateQuesstion(String QuestionText);
 */
 
-/*    @Delete
-    public void deleteAllQuestions();*/
+    @Update
+    public void updateQuestion(Question question);
+
+    @Query("DELETE FROM Question WHERE QuestionText = :text")
+    public void deleteQuestion(String text);
+
+    @Query("DELETE FROM Question")
+    public void deleteAllQuestions();
 
 }

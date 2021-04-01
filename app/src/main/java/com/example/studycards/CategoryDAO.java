@@ -2,26 +2,24 @@ package com.example.studycards;
 
 import androidx.room.Dao;
 import androidx.room.Delete;
-import androidx.room.Entity;
 import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
 import java.util.List;
 
-@Entity
-
 @Dao
 public interface CategoryDAO {
-/*    @Query("SELECT categoryName FROM category")
+
+    @Query("SELECT categoryID, categoryName FROM category")
     List<Category> getCategoryNames();
 
     @Update
     public void updateCategory(Category category);
 
-    @Insert
-*//*    public void insertCategory(String name, String description);*//*
+    @Query("INSERT INTO Category (CategoryName, CategoryDescription) VALUES (:value1, :value2)")
+    public void addCategory(String value1, String value2);
 
-    @Delete
-    public void deleteCategory(String name);*/
+    @Query("DELETE FROM Category WHERE CategoryName = :name")
+    public void deleteCategory(String name);
 }
