@@ -11,15 +11,15 @@ import java.util.List;
 @Dao
 public interface CategoryDAO {
 
-    @Query("SELECT categoryName FROM category")
+    @Query("SELECT categoryID, categoryName FROM category")
     List<Category> getCategoryNames();
 
     @Update
     public void updateCategory(Category category);
 
-    @Insert
-    public void insertCategory(String name, String description);
+    @Query("INSERT INTO Category (CategoryName, CategoryDescription) VALUES (:value1, :value2)")
+    public void addCategory(String value1, String value2);
 
-    @Delete
+    @Query("DELETE FROM Category WHERE CategoryName = :name")
     public void deleteCategory(String name);
 }
