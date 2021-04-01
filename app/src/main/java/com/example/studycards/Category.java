@@ -1,18 +1,17 @@
 package com.example.studycards;
 
-import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.RoomWarnings;
 
 @Entity(tableName = "Category")
+@SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
 public class Category {
     @PrimaryKey
-    @NonNull
     public int CategoryID;
 
     @ColumnInfo
-    @NonNull
     public String CategoryName;
 
     @ColumnInfo
