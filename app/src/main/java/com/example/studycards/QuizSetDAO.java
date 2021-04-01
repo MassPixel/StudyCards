@@ -10,7 +10,7 @@ import java.util.List;
 
 @Dao
 public interface QuizSetDAO {
-    @Insert
+/*    @Insert
     public void addQuizSet(String name);
 
     @Delete
@@ -20,5 +20,5 @@ public interface QuizSetDAO {
     public int getQuizSetID(String name);
 
     @Query("SELECT Question FROM QuizSet WHERE QuizSetName = :name")
-    public List<Question> getQuizSetQuestions(String name);
+    public List<Question> getQuizSetQuestions(String name);*/
 }
