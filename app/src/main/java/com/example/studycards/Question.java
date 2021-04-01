@@ -5,11 +5,7 @@ import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-@Entity(foreignKeys = @ForeignKey(entity = Question.class,
-        parentColumns = "CategoryID",
-        childColumns = "Category",
-        onDelete = ForeignKey.CASCADE))
-
+@Entity
 public class Question {
     @PrimaryKey
     public int QuestionID;
@@ -20,6 +16,4 @@ public class Question {
     @ColumnInfo
     public String AnswerText;
 
-    @ColumnInfo
-    public int Category;
 }
