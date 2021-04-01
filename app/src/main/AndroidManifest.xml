@@ -12,7 +12,7 @@
         <activity
             android:name=".QuizModeActivity"
             android:label="@string/title_activity_quiz_mode"
-            android:theme="@style/Theme.StudyCards.NoActionBar"></activity>
+            android:theme="@style/Theme.StudyCards.NoActionBar" />
         <activity
             android:name=".QuestionBankActivity"
             android:label="@string/title_activity_question_bank"
