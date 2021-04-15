@@ -9,25 +9,46 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-public class SecondFragment extends Fragment {
+import com.example.myapplication1.data.AppDatabase;
+import com.example.myapplication1.data.QuestionDAO;
 
+import java.util.ArrayList;
+import java.util.List;
+
+public class QuizFragment extends Fragment {
+
+    public AppDatabase db;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        db = AppDatabase.getInstance(this.getActivity());
+    }
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false);
+        return inflater.inflate(R.layout.fragment_quiz, container, false);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        QuestionDAO qDAO = db.questionDAO();
 
         view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
+                List<String> qs = qDAO.getAllQuestions();
+                if (qs.isEmpty()) {
+                    System.out.println("No questions on record");
+                }
+                else {
+                    System.out.println(qs.get(0));
+                }
+
+
             }
         });
     }

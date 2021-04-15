@@ -2,11 +2,13 @@ package com.example.myapplication1;
 
 import android.os.Bundle;
 
+import com.example.myapplication1.data.AppDatabase;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.room.Room;
 
 import android.view.View;
 
@@ -30,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "quiz-database").build();
     }
 
     @Override

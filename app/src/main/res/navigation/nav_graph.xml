@@ -3,26 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/menuFragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.myapplication1.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/menuFragment"
+        android:name="com.example.myapplication1.MenuFragment"
+        android:label="@string/menu_fragment_label"
+        tools:layout="@layout/fragment_menu">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            app:destination="@id/quizFragment" />
+        <action
+            android:id="@+id/action_FirstFragment_to_editFragment"
+            app:destination="@id/editFragment" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.myapplication1.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
-
+        android:id="@+id/quizFragment"
+        android:name="com.example.myapplication1.QuizFragment"
+        android:label="@string/quiz_fragment_label"
+        tools:layout="@layout/fragment_quiz" >
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_quizFragment_to_quizQuestionFragment"
+            app:destination="@id/quizQuestionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editFragment"
+        android:name="com.example.myapplication1.EditFragment"
+        android:label="fragment_edit"
+        tools:layout="@layout/fragment_edit" />
+    <fragment
+        android:id="@+id/quizQuestionFragment"
+        android:name="com.example.myapplication1.quizQuestionFragment"
+        android:label="fragment_quiz_question"
+        tools:layout="@layout/fragment_quiz_question" >
+        <action
+            android:id="@+id/action_quizQuestionFragment_self"
+            app:destination="@id/quizQuestionFragment" />
+        <action
+            android:id="@+id/action_quizQuestionFragment_to_quizFragment"
+            app:destination="@id/quizFragment" />
     </fragment>
 </navigation>

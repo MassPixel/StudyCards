@@ -12,7 +12,7 @@ import androidx.navigation.fragment.NavHostFragment;
 
 import com.google.android.material.snackbar.Snackbar;
 
-public class FirstFragment extends Fragment {
+public class MenuFragment extends Fragment {
 
     @Override
     public View onCreateView(
@@ -20,25 +20,25 @@ public class FirstFragment extends Fragment {
             Bundle savedInstanceState
     ) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first, container, false);
+        return inflater.inflate(R.layout.fragment_menu, container, false);
 
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.button_first).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.quizModeButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
+                NavHostFragment.findNavController(MenuFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
-        Button quizMode = view.findViewById(R.id.quizModeButton);
-        quizMode.setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.editModeButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Snackbar.make(v, "Howdy", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                NavHostFragment.findNavController(MenuFragment.this)
+                        .navigate(R.id.action_FirstFragment_to_editFragment);
             }
         });
     }
