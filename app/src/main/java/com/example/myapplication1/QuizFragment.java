@@ -4,12 +4,16 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.myapplication1.data.AppDatabase;
+import com.example.myapplication1.data.Category;
+import com.example.myapplication1.data.CategoryDAO;
 import com.example.myapplication1.data.QuestionDAO;
 
 import java.util.ArrayList;
@@ -35,7 +39,18 @@ public class QuizFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        CategoryDAO cDAO = db.categoryDAO();
         QuestionDAO qDAO = db.questionDAO();
+
+        Spinner categories = view.findViewById(R.id.spinnerCategoryChoice);
+        String[] cs = cDAO.getAllCategories().toArray(new String[0]);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, cs);
+        categories.setAdapter(adapter);
+
+        /*Spinner categories = view.findViewById(R.id.spinnerQuizSetChoice);
+        String[] cs = cDAO.getAllCategories().toArray(new String[0]);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, cs);
+        categories.setAdapter(adapter);*/
 
         view.findViewById(R.id.askAllButton).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,29 +60,23 @@ public class QuizFragment extends Fragment {
                     System.out.println("No questions on record");
                 }
                 else {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("all", "all");
                     NavHostFragment.findNavController(QuizFragment.this)
-                            .navigate(R.id.action_quizFragment_to_quizQuestionFragment, bundle);
+                            .navigate(R.id.action_quizFragment_to_quizQuestionFragment);
                 }
             }
         });
-        view.findViewById(R.id.askAllButton).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.askCategoryButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                List<String> qs = qDAO.getAllQuestions();
-                if (qs.isEmpty()) {
-                    System.out.println("No questions on record");
-                }
-                else {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("all", "all");
-                    NavHostFragment.findNavController(QuizFragment.this)
-                            .navigate(R.id.action_quizFragment_to_quizQuestionFragment, bundle);
-                }
+                String c = categories.getSelectedItem().toString();
+                Bundle bundle = new Bundle();
+                bundle.putString("category", c);
+                NavHostFragment.findNavController(QuizFragment.this)
+                        .navigate(R.id.action_quizFragment_to_categoryQuestionFragment, bundle);
+
             }
         });
-        view.findViewById(R.id.askAllButton).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.askSetButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 List<String> qs = qDAO.getAllQuestions();

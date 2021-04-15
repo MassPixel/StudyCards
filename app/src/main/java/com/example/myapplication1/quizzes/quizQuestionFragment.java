@@ -1,4 +1,4 @@
-package com.example.myapplication1;
+package com.example.myapplication1.quizzes;
 
 import android.os.Bundle;
 
@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.myapplication1.R;
 import com.example.myapplication1.data.AppDatabase;
 import com.example.myapplication1.data.QuestionDAO;
 
@@ -25,6 +26,7 @@ public class quizQuestionFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        db = AppDatabase.getInstance(this.getActivity());
 
     }
 
@@ -47,6 +49,9 @@ public class quizQuestionFragment extends Fragment {
                 List<String> qs = qDAO.getAllQuestions();
                 if (qs.isEmpty()) {
                     System.out.println("No questions on record");
+                }
+                else {
+
                 }
             }
         });

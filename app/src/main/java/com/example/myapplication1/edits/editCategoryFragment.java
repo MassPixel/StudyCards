@@ -1,4 +1,4 @@
-package com.example.myapplication1;
+package com.example.myapplication1.edits;
 
 import android.os.Bundle;
 
@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.myapplication1.R;
 import com.example.myapplication1.data.AppDatabase;
 import com.example.myapplication1.data.Category;
 import com.example.myapplication1.data.CategoryDAO;

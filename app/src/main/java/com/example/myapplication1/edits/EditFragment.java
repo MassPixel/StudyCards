@@ -1,4 +1,4 @@
-package com.example.myapplication1;
+package com.example.myapplication1.edits;
 
 import android.os.Bundle;
 
@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
+import com.example.myapplication1.R;
 import com.example.myapplication1.data.AppDatabase;
 import com.example.myapplication1.data.QuestionDAO;
 import com.google.android.material.snackbar.Snackbar;

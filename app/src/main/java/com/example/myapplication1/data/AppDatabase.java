@@ -1,13 +1,10 @@
 package com.example.myapplication1.data;
 
 import android.content.Context;
-import android.provider.SyncStateContract;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-
-import com.example.myapplication1.EditFragment;
 
 @Database(entities = {Category.class, Question.class, QuizSet.class, CategoryQuestionCrossRef.class, QuizSetQuestionCrossRef.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
