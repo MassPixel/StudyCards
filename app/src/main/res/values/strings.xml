@@ -19,4 +19,6 @@
     <string name="input_an_answer_here">Input an answer here</string>
     <string name="type_a_question_here">Type a question here...</string>
     <string name="type_an_answer_here">Type an answer here...</string>
+    <string name="type_a_category_here">Type a category here...</string>
+    <string name="type_a_category_description_here">Type a category description here...</string>
 </resources>

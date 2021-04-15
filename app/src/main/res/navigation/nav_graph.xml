@@ -17,6 +17,9 @@
         <action
             android:id="@+id/action_FirstFragment_to_editFragment"
             app:destination="@id/editFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_editCategoryFragment"
+            app:destination="@id/editCategoryFragment" />
     </fragment>
     <fragment
         android:id="@+id/quizFragment"
@@ -43,5 +46,14 @@
         <action
             android:id="@+id/action_quizQuestionFragment_to_quizFragment"
             app:destination="@id/quizFragment" />
+        <argument
+            android:name="quizType"
+            app:argType="string"
+            android:defaultValue='"All"' />
     </fragment>
+    <fragment
+        android:id="@+id/editCategoryFragment"
+        android:name="com.example.myapplication1.editCategoryFragment"
+        android:label="fragment_edit_category"
+        tools:layout="@layout/fragment_edit_category" />
 </navigation>

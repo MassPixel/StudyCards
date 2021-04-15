@@ -10,16 +10,18 @@ import java.util.List;
 @Dao
 public interface CategoryDAO {
 
-    @Query("SELECT categoryID, categoryName FROM category")
-    @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
-    List<Category> getCategoryNames();
+    @Query("SELECT CategoryName FROM category")
+    List<String> getAllCategories();
 
     @Update
     public void updateCategory(Category category);
 
     @Query("INSERT INTO Category (CategoryName, CategoryDescription) VALUES (:value1, :value2)")
-    public void addCategory(String value1, String value2);
+    public void insertCategory(String value1, String value2);
 
     @Query("DELETE FROM Category WHERE CategoryName = :name")
     public void deleteCategory(String name);
+
+    @Query("DELETE FROM Category")
+    public void nukeCategory();
 }

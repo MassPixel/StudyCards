@@ -41,5 +41,12 @@ public class MenuFragment extends Fragment {
                         .navigate(R.id.action_FirstFragment_to_editFragment);
             }
         });
+        view.findViewById(R.id.editCategoryButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(MenuFragment.this)
+                        .navigate(R.id.action_menuFragment_to_editCategoryFragment);
+            }
+        });
     }
 }

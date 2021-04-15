@@ -37,7 +37,7 @@ public class QuizFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         QuestionDAO qDAO = db.questionDAO();
 
-        view.findViewById(R.id.button_second).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.askAllButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 List<String> qs = qDAO.getAllQuestions();
@@ -45,10 +45,41 @@ public class QuizFragment extends Fragment {
                     System.out.println("No questions on record");
                 }
                 else {
-                    System.out.println(qs.get(0));
+                    Bundle bundle = new Bundle();
+                    bundle.putString("all", "all");
+                    NavHostFragment.findNavController(QuizFragment.this)
+                            .navigate(R.id.action_quizFragment_to_quizQuestionFragment, bundle);
                 }
-
-
+            }
+        });
+        view.findViewById(R.id.askAllButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                List<String> qs = qDAO.getAllQuestions();
+                if (qs.isEmpty()) {
+                    System.out.println("No questions on record");
+                }
+                else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("all", "all");
+                    NavHostFragment.findNavController(QuizFragment.this)
+                            .navigate(R.id.action_quizFragment_to_quizQuestionFragment, bundle);
+                }
+            }
+        });
+        view.findViewById(R.id.askAllButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                List<String> qs = qDAO.getAllQuestions();
+                if (qs.isEmpty()) {
+                    System.out.println("No questions on record");
+                }
+                else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("all", "all");
+                    NavHostFragment.findNavController(QuizFragment.this)
+                            .navigate(R.id.action_quizFragment_to_quizQuestionFragment, bundle);
+                }
             }
         });
     }
