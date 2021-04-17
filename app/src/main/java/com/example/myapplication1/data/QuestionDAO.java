@@ -9,11 +9,17 @@ import java.util.List;
 @Dao
 public interface QuestionDAO {
 
-    @Query("INSERT INTO Question (QuestionText, AnswerText) VALUES (:question, :answer)")
-    public void insertQuestion(String question, String answer);
+    @Query("INSERT INTO Question (QuestionText, AnswerText, Comfort) VALUES (:question, :answer, :comfort)")
+    public void insertQuestion(String question, String answer, int comfort);
 
-    @Query("SELECT QuestionText from Question")
+    @Query("SELECT QuestionText FROM Question")
     List<String> getAllQuestions();
+
+    @Query("SELECT QuestionID, QuestionText, AnswerText, Comfort FROM Question")
+    List<Question> getAllQuestionsComfort();
+
+    @Query("SELECT QuestionID FROM Question WHERE QuestionText = :qText")
+    public int getQuestionID(String qText);
 
     @Query("DELETE FROM Question")
     public void nukeQuestions();
@@ -23,8 +29,8 @@ public interface QuestionDAO {
     public void updateQuesstion(String QuestionText);
 */
 
-    @Update
-    public void updateQuestion(Question question);
+    @Query("UPDATE Question SET Comfort = :newComfort WHERE QuestionText = :text")
+    public void updateComfort(int newComfort, String text);
 
     @Query("DELETE FROM Question WHERE QuestionText = :text")
     public void deleteQuestion(String text);

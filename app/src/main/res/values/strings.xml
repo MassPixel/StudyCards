@@ -1,4 +1,11 @@
 <resources>
+    <string-array name="comfortArray">
+        <item>1 - Poorly</item>
+        <item>2 - Somewhat poorly</item>
+        <item>3 - Average</item>
+        <item>4 - Well</item>
+        <item>5 - Very well</item>
+    </string-array>
     <string name="app_name">StudyCards</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->

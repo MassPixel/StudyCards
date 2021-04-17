@@ -13,6 +13,9 @@ public interface CategoryDAO {
     @Query("SELECT CategoryName FROM category")
     List<String> getAllCategories();
 
+    @Query("SELECT CategoryID FROM Category WHERE CategoryName = :cName")
+    public int getCategoryID(String cName);
+
     @Update
     public void updateCategory(Category category);
 

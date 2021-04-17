@@ -6,7 +6,7 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Category.class, Question.class, QuizSet.class, CategoryQuestionCrossRef.class, QuizSetQuestionCrossRef.class}, version = 1)
+@Database(entities = {Category.class, Question.class, QuizSet.class, CategoryQuestionCrossRef.class, QuizSetQuestionCrossRef.class}, version = 2)
 public abstract class AppDatabase extends RoomDatabase {
 
     public static AppDatabase appDB;
@@ -32,7 +32,9 @@ public abstract class AppDatabase extends RoomDatabase {
         return Room.databaseBuilder(context,
                 AppDatabase.class,
                 "quiz-database")
-                .allowMainThreadQueries().build();
+                .allowMainThreadQueries()
+                .fallbackToDestructiveMigration()
+                .build();
     }
 
     public void cleanUp(){

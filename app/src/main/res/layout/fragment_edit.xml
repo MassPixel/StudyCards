@@ -7,36 +7,57 @@
     tools:context=".edits.EditFragment" >
 
     <Button
-        android:id="@+id/deleteQuestionButton"
-        android:layout_width="158dp"
-        android:layout_height="85dp"
-        android:layout_marginStart="126dp"
-        android:layout_marginLeft="126dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="127dp"
-        android:layout_marginRight="127dp"
-        android:layout_marginBottom="7dp"
-        android:text="Delete Question"
-        app:layout_constraintBottom_toTopOf="@+id/nukeQuestionButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
-
-    <Button
         android:id="@+id/nukeQuestionButton"
         android:layout_width="158dp"
         android:layout_height="85dp"
-        android:layout_marginStart="126dp"
-        android:layout_marginLeft="126dp"
-        android:layout_marginTop="7dp"
-        android:layout_marginEnd="127dp"
-        android:layout_marginRight="127dp"
-        android:layout_marginBottom="17dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="242dp"
         android:text="Delete All Questions"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/deleteQuestionButton"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="74dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deleteQuestionButton" />
+        app:layout_constraintTop_toBottomOf="@+id/addQuestionButton" />
+
+    <Spinner
+        android:id="@+id/spinnerQuestionCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="34dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/addQuestionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answerInputBox" />
+
+    <Button
+        android:id="@+id/deleteQuestionButton"
+        android:layout_width="158dp"
+        android:layout_height="85dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="63dp"
+        android:layout_marginRight="63dp"
+        android:layout_marginBottom="242dp"
+        android:text="Delete Question"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nukeQuestionButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/addQuestionButton"
@@ -44,15 +65,14 @@
         android:layout_height="85dp"
         android:layout_marginStart="126dp"
         android:layout_marginLeft="126dp"
-        android:layout_marginTop="90dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="127dp"
         android:layout_marginRight="127dp"
-        android:layout_marginBottom="323dp"
         android:text="@string/add_question"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answerInputBox" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerQuestionCategory" />
 
     <EditText
         android:id="@+id/questionInputBox"
@@ -82,23 +102,12 @@
         android:layout_marginEnd="101dp"
         android:layout_marginRight="101dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/type_an_answer_here"
-        app:layout_constraintBottom_toTopOf="@+id/addQuestionButton"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/questionInputBox"
-        android:importantForAutofill="no" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="83dp"
-        android:layout_marginBottom="216dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addQuestionButton" />
+        app:layout_constraintTop_toBottomOf="@+id/questionInputBox" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

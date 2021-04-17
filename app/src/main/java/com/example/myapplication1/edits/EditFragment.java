@@ -18,6 +18,8 @@ import android.widget.SpinnerAdapter;
 
 import com.example.myapplication1.R;
 import com.example.myapplication1.data.AppDatabase;
+import com.example.myapplication1.data.CategoryDAO;
+import com.example.myapplication1.data.CategoryWithQuestionsDAO;
 import com.example.myapplication1.data.QuestionDAO;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -50,16 +52,27 @@ public class EditFragment extends Fragment {
         final Button deleteQuestionB = view.findViewById(R.id.deleteQuestionButton);
         final Button nukeQuestionB = view.findViewById(R.id.nukeQuestionButton);
         QuestionDAO qDAO = db.questionDAO();
+        CategoryDAO cDAO = db.categoryDAO();
+        CategoryWithQuestionsDAO cqDAO = db.categoryWithQuestionsDAO();
 
+        //setting up the dropdown box for deleting questions
         Spinner questions = view.findViewById(R.id.spinner);
         String[] qs = qDAO.getAllQuestions().toArray(new String[0]);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, qs);
         questions.setAdapter(adapter);
 
+        //setting up the dropdown box for adding questions to categories
+        Spinner categories = view.findViewById(R.id.spinnerQuestionCategory);
+        String[] cs = cDAO.getAllCategories().toArray(new String[0]);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_spinner_dropdown_item, cs);
+        categories.setAdapter(adapter2);
+
         addQuestionB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                qDAO.insertQuestion(q.getText().toString(), a.getText().toString());
+                qDAO.insertQuestion(q.getText().toString(), a.getText().toString(), 3);
+
+                cqDAO.addQuestionCategory(qDAO.getQuestionID(q.getText().toString()), cDAO.getCategoryID(categories.getSelectedItem().toString()));
 
                 String[] qs = qDAO.getAllQuestions().toArray(new String[0]);
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getParentFragment().getActivity(), android.R.layout.simple_spinner_dropdown_item, qs);
