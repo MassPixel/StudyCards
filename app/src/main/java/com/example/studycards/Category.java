@@ -5,15 +5,25 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.RoomWarnings;
 
-@Entity
+@Entity(tableName = "Category")
 @SuppressWarnings(RoomWarnings.CURSOR_MISMATCH)
 public class Category {
-    @PrimaryKey
-    public int CategoryID;
+
+    @PrimaryKey(autoGenerate = true)
+    public int categoryID;
 
     @ColumnInfo
     public String CategoryName;
 
     @ColumnInfo
     public  String CategoryDescription;
+
+    public int getCategoryID() {
+        return categoryID;
+    }
+
+    public void setCategoryID(int categoryID) {
+        this.categoryID = categoryID;
+    }
+
 }

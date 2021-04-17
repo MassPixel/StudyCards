@@ -7,10 +7,15 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.room.Room;
 
 import android.view.View;
+import android.widget.Button;
 
 public class QuestionBankActivity extends AppCompatActivity {
+
+/*    AppDatabase appDB = Room.databaseBuilder(getApplicationContext(),
+            AppDatabase.class, "QuestiomBank").build();*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +28,6 @@ public class QuestionBankActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
         });
     }
