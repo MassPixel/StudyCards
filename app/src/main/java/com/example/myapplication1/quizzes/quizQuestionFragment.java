@@ -57,6 +57,7 @@ public class quizQuestionFragment extends Fragment {
 
         question.setText(currentText);
 
+
         Spinner answeredSpinner = view.findViewById(R.id.quizQAnsweredSpinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getContext(),
                 R.array.comfortArray, android.R.layout.simple_spinner_item);
